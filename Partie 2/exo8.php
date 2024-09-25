@@ -11,21 +11,32 @@ repeterImage($url,4);</p>
 
 <?php
 
-$url = "<img src='http://my.mobirise.com/data/userpic/764.jpg'></img>";
+// $url = "<img src='http://my.mobirise.com/data/userpic/764.jpg'></img>";
 
-function repeterImage(string $url, int $nbRepetitions){
+// function repeterImage(string $url, int $nbRepetitions){
+//     $resultat = "";
+//     foreach(range(1, $nbRepetitions) as $valeur) {
+//         $resultat .= $url.$nbRepetitions;
+//     }
+//     return $resultat;
+// }
+
+// echo repeterImage($url,4);
+
+
+// echo str_repeat($url,4);
+
+
+$url = 'http://my.mobirise.com/data/userpic/764.jpg';
+
+function repeterImage(string $url, int $nbRepetitions) : string {
     $resultat = "";
     foreach(range(1, $nbRepetitions) as $valeur) {
-        $resultat .= $url.$nbRepetitions;
+        $resultat .= "<img src='$url'.$nbRepetitions></img>";
     }
     return $resultat;
 }
 
 echo repeterImage($url,4);
-
-//Écart entre les images avec la fonction personnalisée: comment régler le problème ?
-
-// echo str_repeat($url,4);
-
-
+ 
 ?> 

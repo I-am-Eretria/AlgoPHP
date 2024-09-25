@@ -14,14 +14,14 @@ afficherRadio($nomsRadio);</p>
 
 $nomsRadio = ["Masculin", "Féminin","Autre"]; 
 
-function afficherRadio($nomsRadio){
+function afficherRadio(array $nomsRadio) : string {
     
     $result = "<form>";
 
-    foreach($nomsRadio as $valeur){
+    foreach($nomsRadio as $genre){
         $result .= "<div>
-                    <input id='$valeur' type='radio'> 
-                    <label for='$valeur' id=''>$valeur</label>
+                    <input id='$genre' name='genre' type='radio' value='$genre'>  
+                    <label for='$genre'>$genre</label>
                 </div>";
     }
 

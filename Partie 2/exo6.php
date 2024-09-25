@@ -27,12 +27,12 @@ alimenterListeDeroulante($elements);</p>
 
 $elements = ["Monsieur","Madame","Mademoiselle"]; 
 
-function alimenterListeDeroulante($elements){
+function alimenterListeDeroulante(array $elements) : string {
     
-    $result = "<select name='civilité' id='liste_deroulante'>";
+    $result = "<select name='civilite' id='liste_deroulante'>";
 
-    foreach($elements as $valeur){
-        $result .= "<option value='$valeur'>$valeur</option>";
+    foreach($elements as $civilite){
+        $result .= "<option value='$civilite'>$civilite</option>";
     }
 
     $result .= "</select>";

@@ -27,7 +27,7 @@ foreach($capitales as $pays => $capitale){
   echo "Le pays $pays a pour capitale: $capitale.<br>";
 }
 
-function afficherTableHTML($capitales){ 
+function afficherTableHTML(array $capitales) : string { 
 
   asort($capitales); // trier le tableau dans l'ordre alphabétique (de A à  Z) sur la valeur
 

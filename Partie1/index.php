@@ -34,7 +34,7 @@ $tableau2 = ["texte 1", "texte 2"];
 
 $date = new DateTime();
 //   -> programmation orientée objet (POO)*
-//   -> dès que PHP variabale = new quelque chose, on instancie un ojet de la classe DateTime pour pouvoir accéder à des fonctions
+//   -> dès que PHP variable = new quelque chose, on instancie un ojet de la classe DateTime pour pouvoir accéder à des fonctions
 //      qui nous permettrons de faire des calculs de dates, des différences, etc
 
 
@@ -396,6 +396,13 @@ intdiv(dividend, divisor);
 // Mettre texte en couleur [VOIR EX1 P2]
 $texteRed = "<font color='#FF0000'>$texte</font>";
 
+
+//Opérateur ternaire [VOIR EX07 P2]
+/*
+L'opérateur ternaire est une façon concise d'écrire une instruction if qui affecte une valeur à une variable en fonction d'une condition.
+La syntaxe générale est : condition ? valeur_si_vrai : valeur_si_faux.
+Dans notre cas, si la condition $valeur === "checked" est vraie, alors $checkedAttribute recevra la valeur 'checked'. Sinon, il recevra une chaîne vide ''.
+*/
 
 ?> 
 <!-- On peut fermer si l'on veut mais pas besoin de fermer la balise s'il l'on va coder uniquement en PHP -->

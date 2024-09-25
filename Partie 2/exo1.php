@@ -12,7 +12,7 @@ caractère passée en argument en majuscules et en rouge.</p>
 
 $texte = "Mon texte en paramètre";
 
-function convertirMajRouge($texte) : string {
+function convertirMajRouge(string $texte) : string {
     $texteMAJ = mb_strtoupper($texte);
     $texte = "<font color='#FF0000'>$texteMAJ</font>";
     return $texte;

@@ -11,16 +11,22 @@ formaterDateFr("2018-02-23");</p>
 
 <?php
 
-// function formaterDateFr("2018-02-23"){}
+function formaterDateFr(string $date) : string {
 
+    $dateTrans = new DateTime($date);
 
+    $fmt = new IntlDateFormatter(
+        'fr_FR',
+        IntlDateFormatter::FULL,                                    // Date format, ici full
+        IntlDateFormatter::NONE,                                    // Heure, ici none donc pas affichée
+        'Europe/Paris',                                             // Fuseau Horaire
+        IntlDateFormatter::GREGORIAN                                // Calendrier grégorien, pour non grégorien : TRADITIONAL
+    );
 
-$nombre = 25;
-$nf = new NumberFormatter('fr', NumberFormatter::SPELLOUT);
-echo $nf->format($nombre);
+    return $fmt->format($dateTrans);
+}
 
+echo formaterDateFr("2018-02-23");
 
-
-// echo formaterDateFr("2018-02-23");
 
 ?> 

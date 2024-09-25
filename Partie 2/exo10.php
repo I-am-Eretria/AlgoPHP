@@ -17,14 +17,14 @@ de validation (submit).</p>
 
 $infosInput = ["Nom","Prénom","Adresse e-mail","Ville"]; 
 
-function afficherInput($infosInput){
+function afficherInput(array $infosInput) : string {
 
     $result = "<div>";
 
-    foreach($infosInput as $valeur){
+    foreach($infosInput as $info){
         $result .= "<div>
-                        <label for='$valeur' id='$valeur'>$valeur</label> <br>
-                        <input id='$valeur' type='text'>
+                        <label for='$info' id='$info'>$info</label> <br>
+                        <input id='$info' type='text'>
                     </div><br>";
     }
 
@@ -37,7 +37,7 @@ function afficherInput($infosInput){
 
 $genres = ["Féminin","Masculin","Autre"]; 
 
-function ListeGenres($genres){
+function ListeGenres(array $genres) : string {
     
     $result = " <label for='genres'>Genre</label>
                 <select name='genres' id=''>";
@@ -56,7 +56,7 @@ function ListeGenres($genres){
 
 $formations = ["Développeur Logiciel","Designer web","Intégrateur","Chef de projet"]; 
 
-function ListeFormations($formations){
+function ListeFormations(array $formations) : string {
     
     $result = " <br><label for='formations'>Intitulé de formation</label>
                 <select name='formations' id=''>";
@@ -65,7 +65,7 @@ function ListeFormations($formations){
         $result .= "<option value='$formation'>$formation</option>";
     }
 
-    $result .= "</select>";
+    $result .= "</select><br>";
     return $result;
 
 }
@@ -73,15 +73,17 @@ function ListeFormations($formations){
 
 // Formulaire
 
-echo "<form action ='action.php' method='post'>";
-echo afficherInput($infosInput);
-echo ListeGenres($genres);
-echo ListeFormations($formations);
-echo "</form>";
+function afficherFormulaire(array $infosInput, array $genres, array $formations) : string {
+    $result = "<form action ='action.php' method='post'>";
+    $result .= afficherInput($infosInput);
+    $result .=  ListeGenres($genres);
+    $result .=  ListeFormations($formations);
+    $result .=  "<button type='submit'>Envoyer</button>";
+    $result .=  "</form>";
+    ;
+    return $result;
+}
 
-
-//  Bouton permettant de le soumettre à un traitement de validation (submit)
-
-echo "<button type='submit'>Envoyer</button>";
+echo afficherFormulaire($infosInput, $genres, $formations);
 
 ?> 

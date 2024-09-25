@@ -28,6 +28,10 @@ genererCheckbox($elements); <br>
 
 <?php
 
+
+//Version 1
+
+/*
 $elements = [
     "Choix 1" => "non-cochée",
     "Choix 2" => "cochée",
@@ -55,6 +59,71 @@ function genererCheckbox($elements){
     $result .= "</form>";
     return $result;
 
+}
+
+echo genererCheckbox($elements);
+*/
+
+
+
+//Version 2
+
+/*
+$elements = [
+    "Choix 1" => "",           // non coché
+    "Choix 2" => "checked",    // coché
+    "Choix 3" => ""            // non coché
+]; 
+
+function genererCheckbox($elements) {
+    $result = "<form>";
+
+    foreach($elements as $choice => $checked) {
+        $checkedAttribute = $valeur === "checked" ? 'checked' : '';     //=== : C'est l'opérateur de comparaison stricte. Il vérifie à la fois la valeur et le type. Donc, cette condition est vraie uniquement si $valeur est exactement la chaîne "checked".
+        $result .= "
+            <div>
+                <input id='$choice' type='checkbox' $checkedAttribute>
+                <label for='$choice'>$choice</label>
+            </div>";
+    }
+
+    $result .= "</form>";
+    return $result;
+}
+
+echo genererCheckbox($elements);
+*/
+
+/* Explications -> $checkedAttribute = $valeur === "checked" ? 'checked' : '';
+
+L'opérateur ternaire est une façon concise d'écrire une instruction if qui affecte une valeur à une variable en fonction d'une condition.
+La syntaxe générale est : condition ? valeur_si_vrai : valeur_si_faux.
+Dans notre cas, si la condition $valeur === "checked" est vraie, alors $checkedAttribute recevra la valeur 'checked'. Sinon, il recevra une chaîne vide ''.
+*/
+
+
+
+//Version 3
+
+$elements = [
+    "Choix 1" => "",           // non coché
+    "Choix 2" => "checked",    // coché
+    "Choix 3" => ""            // non coché
+]; 
+
+function genererCheckbox(array $elements) : string {
+    $result = "<form>";
+
+    foreach($elements as $choice => $checked) {
+        $result .= "
+            <div>
+                <input id='$choice' type='checkbox' $checked>
+                <label for='$choice'>$choice</label>
+            </div>";
+    }
+
+    $result .= "</form>";
+    return $result;
 }
 
 echo genererCheckbox($elements);

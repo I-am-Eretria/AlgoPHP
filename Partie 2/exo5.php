@@ -29,15 +29,15 @@ afficherInput($nomsInput);</p>
 
 $nomsInput = ["Nom","Prénom","Ville"]; 
 
-function afficherInput($nomsInput){
+function afficherInput(array $nomsInput) : string {
 
     $result = "<form>
                 <div>";
 
-    foreach($nomsInput as $valeur){
+    foreach($nomsInput as $info){
         $result .= "<div>
-                        <label for='$valeur' id='$valeur'>$valeur</label> <br>
-                        <input id='$valeur' type='text'>
+                        <label for='$info' id='$info'>$info</label> <br>
+                        <input name='$info' id='$info' type='text'>
                     </div>";
     }
 
